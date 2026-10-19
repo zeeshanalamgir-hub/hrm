@@ -14,7 +14,7 @@ class AuthenticationTest extends TestCase
     {
         $this->get(route('home'))
             ->assertOk()
-            ->assertSee('Run your business.')
+            ->assertSee('Manage your people.')
             ->assertSee(route('login'));
     }
 

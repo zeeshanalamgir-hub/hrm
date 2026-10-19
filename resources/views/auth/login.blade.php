@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Log in — Shon')
+@section('title', 'Log in — Shon HR')
 
 @php
     $fieldLabel = 'mb-2 block text-2xs font-bold text-ink';
@@ -18,14 +18,14 @@
 
             <div class="relative z-1 my-auto pt-[55px] pb-7">
                 <div class="inline-flex items-center gap-[9px] rounded-full border border-white/20 bg-white/10 px-[13px] py-[9px] text-3xs font-extrabold tracking-[1.3px] text-white">
-                    <span class="size-[7px] rounded-full bg-white shadow-[0_0_0_4px_rgb(255_255_255/0.2)]"></span> YOUR BUSINESS, IN SYNC
+                    <span class="size-[7px] rounded-full bg-white shadow-[0_0_0_4px_rgb(255_255_255/0.2)]"></span> YOUR PEOPLE, IN SYNC
                 </div>
                 <h1 class="mt-[23px] mb-4 font-display text-[clamp(38px,4.3vw,56px)] leading-[1.12] font-extrabold tracking-[-2.9px] text-white">
-                    Good work starts<br>with a <span class="text-primary-light">clear view.</span>
+                    Great teams start<br>with <span class="text-primary-light">great HR.</span>
                 </h1>
-                <p class="max-w-[440px] text-[13px] leading-[1.9] text-white/80">One calm, connected workspace for the products you manage, the orders you fulfill, and the decisions you make.</p>
+                <p class="max-w-[440px] text-[13px] leading-[1.9] text-white/80">One calm, connected workspace for the people you hire, the time they work, and the pay they count on.</p>
                 <div class="mt-[25px] grid gap-[13px]">
-                    @foreach (['Inventory and stock visibility', 'Connected sales and purchases', 'Reports that bring clarity'] as $point)
+                    @foreach (['Employee records in one place', 'Attendance and leave, tracked automatically', 'Payroll that runs on time'] as $point)
                         <span class="flex items-center gap-[9px] text-[11px] text-white/90"><i data-lucide="circle-check" class="size-[15px] text-primary-light"></i> {{ $point }}</span>
                     @endforeach
                 </div>
@@ -33,14 +33,14 @@
 
             <div class="relative z-1 mx-auto mb-[22px] w-full max-w-[420px] rounded-[15px] border border-white/20 bg-white/10 px-[18px] py-[17px] backdrop-blur-[10px]">
                 <div class="flex items-center justify-between">
-                    <span class="grid size-[31px] place-items-center rounded-[9px] bg-white/15 text-white"><i data-lucide="chart-no-axes-combined" class="size-4"></i></span>
+                    <span class="grid size-[31px] place-items-center rounded-[9px] bg-white/15 text-white"><i data-lucide="users" class="size-4"></i></span>
                     <span class="flex items-center gap-[7px] text-[7px] font-extrabold tracking-[1px] text-white/75">
-                        <i class="size-[5px] rounded-full bg-white shadow-[0_0_0_4px_rgb(255_255_255/0.2)]"></i> WORKSPACE OVERVIEW
+                        <i class="size-[5px] rounded-full bg-white shadow-[0_0_0_4px_rgb(255_255_255/0.2)]"></i> PEOPLE OVERVIEW
                     </span>
                 </div>
-                <strong class="mt-[13px] block font-display text-[13px] font-bold">Business at a glance</strong>
+                <strong class="mt-[13px] block font-display text-[13px] font-bold">Your team at a glance</strong>
                 <div class="mt-[13px] grid grid-cols-3 gap-2.5">
-                    @foreach ([['Orders', '1,284', '+8.2%'], ['Stock items', '3,642', 'Updated'], ['Revenue', '$48.2k', '+12.8%']] as [$label, $value, $change])
+                    @foreach ([['Employees', '248', '+6 this month'], ['Present today', '231', '94% on time'], ['On leave', '12', '4 pending']] as [$label, $value, $change])
                         <div class="rounded-[9px] border border-white/15 bg-white/8 p-2.5">
                             <small class="block text-4xs text-white/70">{{ $label }}</small>
                             <b class="my-[5px] block font-display text-[17px] font-extrabold">{{ $value }}</b>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="relative z-1 flex justify-between gap-2.5 text-[7px] tracking-[1px] text-white/65">
-                <span>SECURE WORKSPACE ACCESS</span><span>Simple. Connected. Clear.</span>
+                <span>SECURE HR WORKSPACE ACCESS</span><span>Hire. Track. Pay.</span>
             </div>
         </section>
 
@@ -74,8 +74,8 @@
                         <i data-lucide="lock-keyhole" class="size-[19px]"></i>
                     </div>
                     <span class="text-4xs font-extrabold tracking-[1.6px] text-primary-strong">WELCOME BACK</span>
-                    <h2 class="mt-[9px] mb-2 font-display text-[28px] font-extrabold tracking-[-1.4px] text-ink xs:text-[30px]">Sign in to Shon</h2>
-                    <p class="text-[11px] leading-[1.7] text-muted">Enter your details to access your business workspace.</p>
+                    <h2 class="mt-[9px] mb-2 font-display text-[28px] font-extrabold tracking-[-1.4px] text-ink xs:text-[30px]">Sign in to Shon HR</h2>
+                    <p class="text-[11px] leading-[1.7] text-muted">Enter your details to access your HR workspace.</p>
                 </div>
 
                 <form id="loginForm" method="POST" action="{{ route('login') }}" novalidate>
@@ -111,12 +111,12 @@
 
                     <p id="formNote" role="{{ $errors->any() ? 'alert' : 'status' }}"
                        @class(['mt-[11px] text-center text-3xs leading-[1.6] text-faint [&.error]:text-danger', 'error' => $errors->any()])>
-                        {{ $errors->first() ?: 'Use the account your workspace administrator gave you.' }}
+                        {{ $errors->first() ?: 'Use the account your HR administrator gave you.' }}
                     </p>
                 </form>
 
                 <p class="mt-[23px] text-center text-3xs text-muted">
-                    Need access? <a href="{{ route('home') }}#how-it-works" class="font-bold text-primary-strong hover:underline">Contact your workspace administrator</a>
+                    Need access? <a href="{{ route('home') }}#how-it-works" class="font-bold text-primary-strong hover:underline">Contact your HR administrator</a>
                 </p>
             </div>
 

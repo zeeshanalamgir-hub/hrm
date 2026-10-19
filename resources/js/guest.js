@@ -41,7 +41,7 @@ function initLoginForm() {
 
     $('#forgotPassword').on('click', (event) => {
         event.preventDefault();
-        toast('Password reset is not set up yet. Contact your workspace administrator.');
+        toast('Password reset is not set up yet. Contact your HR administrator.');
         $email.trigger('focus');
     });
 
